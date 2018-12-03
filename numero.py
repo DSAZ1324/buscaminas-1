@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Nov 18 00:03:21 2018
+Created on Mon Dec  3 10:52:17 2018
 
-@author: enaut
+@author: carlos.perez.cabot
 """
-import casilla
-class numero(casilla):
-    def __init__(self, valor):
-        
-    def minas_cerca(self)
-        
+from casilla import Casilla
+class numero(Casilla):
+    def __init__(self):
+        Casilla.__init__(self, posx, posy)
+        self.contador=int(0)
+    def analizar_minas(self, matr):
+        for dimx in range(self.x-1, self.x+2):
+                for dimy in range(self.y-1, self.y+2):
+                    if Casilla.get_val == 1:
+                        self.contador+=1
+    def get_valor(self):
+        return self.contador       
