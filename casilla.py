@@ -22,6 +22,6 @@ class Casilla:
     def set_lev(self, lev):
         self.lev = lev #Cambia de estado a la casilla
     def get_val(self):  
-        return random.randint(0,2)  #Devuelve entero entre 0 y 2, 
-#0 = espacio en blanco, 1 = mina, 2 = numero. Todas son subclases por definir.
+        return random.randint(0,1)  #Devuelve entero entre 0 y 2, 
+#0 = numero, 1 = mina.
     
