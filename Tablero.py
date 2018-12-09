@@ -14,7 +14,7 @@ class Tablero:
         for i in range(dimx):
             for j in range(dimy):
                 matr = matr[i[j]].append(Casilla)#Irá creando en cada casilla un objeto, repasar
-                print(f"{Casilla.get_lev}|", end="")
+    
 
         
         #Crear tabero aqui
