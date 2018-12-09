@@ -14,11 +14,8 @@ class Casilla:
         self.lev = False #Estado de la casilla, True = levantado, False = Tapado
     def get_pos(self):
         return self.x, self.y #Devuelve posición
-#    def get_lev(self):
-#        if self.lev == False:
-#            return "X"
-#        else:
-#            return True#Devuelve el estado
+    def get_lev(self):
+       return self.lev#Devuelve el estado
     def set_lev(self, lev):
         self.lev = lev #Cambia de estado a la casilla
     def get_val(self):  
