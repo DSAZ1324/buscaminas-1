@@ -12,9 +12,12 @@ kosas ke hacer:
 5-klase main
   5.1 marcar casilla (banderita....)
   5.2 destapar casillas
-  5.3 parar reloj
+  5.3 crear reloj
   5.4 dibujar tablero
     5.4.1 casillas con valor 0 dibujar vacias
     5.4.2 cada numero un color
-  5.5
+  5.5 funcion para actualizar el tablero despues de cada jugada
+  5.6 parar tiempo cuando pierda
+  
+  
   
