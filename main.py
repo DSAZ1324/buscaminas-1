@@ -5,7 +5,6 @@ Created on Sun Dec  2 21:49:00 2018
 
 @author: enaut
 """
-matr = []
 def dibujar_tabl(matr, dimx, dimy):
     
     
