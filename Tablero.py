@@ -5,7 +5,7 @@ Created on Sat Nov 24 16:18:57 2018
 
 @author: enaut
 """
-import casilla
+from casilla import Casilla
 class Tablero:
     def __init__(self, i, j):
         self.i = int(i)
@@ -14,13 +14,12 @@ class Tablero:
         matr= []
         for i in range(self.i):
             for j in range(self.j):
-                matr = matr[i[j]].append(Casilla.set_val())#Irá creando en cada casilla un objeto, repasar
+                matr[i[j]].append(Casilla(i, j))#Irá creando en cada casilla un objeto, repasar
         return matr
     def levantar(self, matr):
-        for dimx in range(self.i-1, self.i+2):
-                for dimy in range(self.j-1, self.j+2):
-                    if Casilla.get_val == 1:
-                        self.contador+=1
+        for dimx in range(self.i-1, self.i+1):
+                for dimy in range(self.j-1, self.j+1):
+                     matr[dimx[dimy]] = Casilla
 
         
         #Crear tabero aqui
