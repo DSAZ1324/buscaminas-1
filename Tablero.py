@@ -12,9 +12,11 @@ class Tablero:
         self.j = int(j)
     def crear_tab(self):
         matr= []
+        matraux = []
         for i in range(self.i):
             for j in range(self.j):
-                matr[i[j]].append(Casilla(i, j))#Irá creando en cada casilla un objeto, repasar
+                matraux.append(1)
+            matr += matraux
         return matr
     def levantar(self, matr):
         for dimx in range(self.i-1, self.i+1):
