@@ -12,14 +12,14 @@ matr = []
 def dibujar_tabl(matr, x, y):
     for i in range(int(x)):
         for j in range(int(y)):
-            print(matr[i[j]].get_val())
+            return Casilla.get_val(matr[i][j])
         
-dim = str(input("Introduzca las dimensiones de tu tablero (x,y): "))
+dim = str(input("Introduzca las dimensiones de tu tablero (filas, columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
-#dibujar_tabl(matr,x,y)
-print(matr)
+print(dibujar_tabl(matr,x,y))
+
 
             
     

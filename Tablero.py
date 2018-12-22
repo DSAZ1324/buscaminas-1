@@ -15,8 +15,9 @@ class Tablero:
         matraux = []
         for i in range(self.i):
             for j in range(self.j):
-                matraux.append(1)
-            matr += matraux
+                if len(matraux) < self.j:
+                    matraux.append(Casilla(i, j))
+            matr.append(matraux)
         return matr
     def levantar(self, matr):
         for dimx in range(self.i-1, self.i+1):
