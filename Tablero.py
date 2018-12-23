@@ -16,8 +16,9 @@ class Tablero:
         for i in range(self.i):
             for j in range(self.j):
                 if len(matraux) < self.j:
-                    matraux.append(Casilla(i, j))
+                    matraux.append(Casilla(i, j).get_val())
             matr.append(matraux)
+            matraux = []
         return matr
     def levantar(self, matr):
         for dimx in range(self.i-1, self.i+1):
@@ -26,6 +27,4 @@ class Tablero:
 
         
         #Crear tabero aqui
-        #Levantar funcion o metodo? (Recursivo)
-    
-        
+        #Levantar funcion o metodo? (Recursivo) 

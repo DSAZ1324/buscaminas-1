@@ -23,4 +23,4 @@ class Casilla:
      #   self.val = random.randint(0,1)  #Devuelve entero entre 0 y 2, 
 #0 = numero, 1 = mina.
     def get_val(self):  
-        return self.val
+        return int(self.val)

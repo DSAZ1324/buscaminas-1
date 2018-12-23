@@ -10,15 +10,27 @@ from Tablero import Tablero
 
 matr = []
 def dibujar_tabl(matr, x, y):
+    lista = []
+    listaux = []
     for i in range(int(x)):
         for j in range(int(y)):
-            return Casilla.get_val(matr[i][j])
+            if len(listaux) < int(y):
+                listaux.append(Casilla(i, j).get_val())
+        lista.append(listaux)
+        listaux = []
+    return lista
         
-dim = str(input("Introduzca las dimensiones de tu tablero (filas, columnas): "))
+dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
-print(dibujar_tabl(matr,x,y))
+#for i in range(int(x)):
+#    for j in range(int(y)):
+#        print(Casilla.get_pos(matr[i][j]))
+
+dibujar_tabl(matr, x, y)
+
+
 
 
             
