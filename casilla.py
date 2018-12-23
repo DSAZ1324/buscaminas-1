@@ -37,4 +37,4 @@ class numero(Casilla):
                     if Casilla.get_val == 1:
                         self.contador+=1
     def get_valor(self):
-        return self.contador       
+        return self.contador        
