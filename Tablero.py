@@ -16,7 +16,7 @@ class Tablero:
         for i in range(self.i):
             for j in range(self.j):
                 if len(matraux) < self.j:
-                    matraux.append(Casilla(i, j).get_val())
+                    matraux.append(Casilla(i, j))
             matr.append(matraux)
             matraux = []
         return matr
