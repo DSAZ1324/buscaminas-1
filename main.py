@@ -28,7 +28,8 @@ matr = Tablero.crear_tab(matr)
 #    for j in range(int(y)):
 #        print(Casilla.get_pos(matr[i][j]))
 
-dibujar_tabl(matr, x, y)
+a = dibujar_tabl(matr, x, y)
+print(a)
 
 
 
