@@ -24,7 +24,8 @@ def actualizar_y_dibujar_tablero(lista, x, y):
     for i in range(int(x)):
         for j in range(int(y)):
             if lista[i][j] != 1:
-                if numero
+                if numero.get_lev(lista[i][j]):
+                    None
     
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
