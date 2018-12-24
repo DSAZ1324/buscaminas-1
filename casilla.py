@@ -32,9 +32,9 @@ class numero(Casilla):
         Casilla.__init__(self, posx, posy)
         self.contador=int(0)
     def analizar_minas(self, matr):
-        for dimx in range(self.x-1, self.x+1):
-                for dimy in range(self.y-1, self.y+1):
-                    if Casilla.get_val == 1:
+        for i in range(self.x-1, self.x+1):
+                for j in range(self.y-1, self.y+1):
+                    if Casilla.get_val(matr[i][j]) == 1:
                         self.contador+=1
     def get_valor(self):
         return self.contador       

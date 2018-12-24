@@ -20,8 +20,11 @@ def tablero(matr, x, y):
         listaux = []
     return lista
 
-def actualizar_y_dibujar_tablero(matrusable):
-    None
+def actualizar_y_dibujar_tablero(lista, x, y):
+    for i in range(int(x)):
+        for j in range(int(y)):
+            if lista[i][j] != 1:
+                if numero
     
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
@@ -29,7 +32,6 @@ matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
 a = tablero(matr, x, y)
 print(a)
-print(tablero(matr, x, y))
 
 
 
