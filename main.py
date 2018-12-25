@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Dec 23 21:38:55 2018
+Created on Sun Nov 23 21:38:55 2018
 
-@author: caper
+@author: enaut.genua
 """
 import time
 from casilla import Casilla
 from casilla import numero
 from casilla import mina
-from tablero import Tablero
-
-
+from Tablero import Tablero
 matr = []
 def crear_minas_numeros(matr, x, y):
     for i in range(int(x)):
@@ -31,29 +29,27 @@ def table(matr, x, y):
         listaux = []
     return lista
 def actualizar_y_dibujar_tablero(lista, x, y):
-    
+    print((int(x) + 1) * "-+-")
+    print("  |",end="")
     for i in range(int(x)):
-        for j in range(int(y)):
-            if Casilla.get_val(lista[i][j]) == 0:
-                lista[i][j] = numero(i, j)
-                cant_de_minas = numero(i, j).analizar_minas(lista)
-            
-    matr_dib=""
+        print(f" {i + 1}|", end="")
+    print("\n" + (int(x) + 1) * "-+-")
     for i in range(int(x)):
+        print(f" {i + 1}|", end="")
         for j in range(int(y)):
-            matr_dib+=str(matr[i][j])+'\t'
-        print (matr_dib)
-        matr_dib=""
+            if Casilla.get_lev(lista[i][j]) == True:
+                if Casilla.get_val(lista[i][j]) == 0:
+                    lista[i][j] = numero(i, j)
+                    cant_de_minas = numero(i, j).analizar_minas(lista)
+                    print(f" {cant_de_minas}|", end="")
+                else:
+                    se_ha_acabado_el_juego = True
+                    return se_ha_acabado_el_juego
+                
+                    
             
-    
+            
 
-parar=False
-while parar==False:
-    tiempo= time.time()
-if parar==True:
-    print(tiempo)
-
-    
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
