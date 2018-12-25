@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov 24 16:18:57 2018
+Created on Sun Dec 23 21:38:01 2018
 
-@author: enaut
+@author: caper
 """
 from casilla import Casilla
 class Tablero:
@@ -23,8 +22,10 @@ class Tablero:
     def levantar(self, matr):
         for dimx in range(self.i-1, self.i+1):
                 for dimy in range(self.j-1, self.j+1):
-                     matr[dimx[dimy]] = Casilla
-
+                     matr[dimx[dimy]] = Casilla(posx, posy)
+                     val_casilla=Casilla.get_lev()
+         return val_casilla            
+            
         
-        #Crear tabero aqui
+        #Crear tablero aqui
         #Levantar funcion o metodo? (Recursivo) 
