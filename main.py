@@ -54,10 +54,4 @@ matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
 actualizar_y_dibujar_tablero(matr, x, y)
 
-a=""
-for i in range (int(x)):
-    for j in range (int(y)):
-        a+=str(matr[i][j])+'\t'
-    print (a)
-    a=""
         
