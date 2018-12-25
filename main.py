@@ -39,16 +39,16 @@ def actualizar_y_dibujar_tablero(lista, x, y):
         for j in range(int(y)):
             if Casilla.get_lev(lista[i][j]) == True:
                 if Casilla.get_val(lista[i][j]) == 0:
-                    lista[i][j] = numero(i, j)
                     cant_de_minas = numero(i, j).analizar_minas(lista)
                     print(f" {cant_de_minas}|", end="")
                 else:
+                    print(" X|", end = "")
                     se_ha_acabado_el_juego = True
-                    return se_ha_acabado_el_juego
+                    
             else:
                 print("  |", end="")
         print()        
-                    
+    return se_ha_acabado_el_juego
             
             
 

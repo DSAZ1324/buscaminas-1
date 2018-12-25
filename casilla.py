@@ -9,7 +9,7 @@ class Casilla:
     def __init__(self, posx, posy):
         self.x = int(posx) #Posición de la casilla en el eje x
         self.y = int(posy) #Posición de la casilla en el eje y
-        self.lev = False #Estado de la casilla, True = levantado, False = Tapado
+        self.lev = True #Estado de la casilla, True = levantado, False = Tapado
         self.val = random.randint(0, 1)#0 = numero, 1 = mina.
     def get_pos(self):
         return self.x, self.y #Devuelve posición
@@ -26,9 +26,9 @@ class numero(Casilla):
         self.val = 0
     def analizar_minas(self, matr):
         for i in range(self.x-1, self.x+1):
-                for j in range(self.y-1, self.y+1):
-                    if Casilla.get_val(matr[i][j]) == 1:
-                        self.contador+=1
+            for j in range(self.y-1, self.y+1):
+                if Casilla.get_val(matr[i][j]) == 1:
+                    self.contador+=1
         return self.contador       
 class mina(Casilla):
     def __init__(self, posx, posy):
