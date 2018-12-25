@@ -4,10 +4,13 @@ Created on Sun Dec 23 21:38:55 2018
 
 @author: caper
 """
+import time
 from casilla import Casilla
 from casilla import numero
 from casilla import mina
 from tablero import Tablero
+
+
 matr = []
 def crear_minas_numeros(matr, x, y):
     for i in range(int(x)):
@@ -44,6 +47,11 @@ def actualizar_y_dibujar_tablero(lista, x, y):
             
     
 
+parar=False
+while parar==False:
+    tiempo= time.time()
+if parar==True:
+    print(tiempo)
 
     
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
