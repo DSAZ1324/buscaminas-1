@@ -30,13 +30,14 @@ def table(matr, x, y):
 def actualizar_y_dibujar_tablero(lista, x, y):
     for i in range(int(x)):
         for j in range(int(y)):
-            if lista[i][j] != 1:
-                if numero.get_lev(lista[i][j]):
-                    None
+            if Casilla.get_val(lista[i][j]) == 0:
+                lista[i][j] = numero(i, j)
+                cant_de_minas = numero(i, j).analizar_minas(lista)
+    
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
 matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
-print(matr)
+actualizar_y_dibujar_tablero(matr, x, y)
