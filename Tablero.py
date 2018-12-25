@@ -20,10 +20,10 @@ class Tablero:
             matraux = []
         return matr
     def levantar(self, matr):
-        for dimx in range(self.i-1, self.i+1):
-                for dimy in range(self.j-1, self.j+1):
-                     matr[dimx[dimy]] = Casilla(posx, posy)
-                     val_casilla=Casilla.get_lev()
+        for x in range(self.i-1, self.i+1):
+                for y in range(self.j-1, self.j+1):
+                     matr[x][y] = Casilla(x, y)
+                     val_casilla = Casilla.get_lev()
          return val_casilla            
             
         
