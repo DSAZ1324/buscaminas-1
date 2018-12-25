@@ -45,7 +45,9 @@ def actualizar_y_dibujar_tablero(lista, x, y):
                 else:
                     se_ha_acabado_el_juego = True
                     return se_ha_acabado_el_juego
-                
+            else:
+                print("  |", end="")
+        print()        
                     
             
             

@@ -24,7 +24,7 @@ class Tablero:
                 for y in range(self.j-1, self.j+1):
                      matr[x][y] = Casilla(x, y)
                      val_casilla = Casilla.get_lev()
-         return val_casilla            
+        return val_casilla            
             
         
         #Crear tablero aqui
