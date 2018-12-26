@@ -9,12 +9,15 @@ from casilla import numero
 from casilla import mina
 from Tablero import Tablero
 matr = []
-def levantar_auto(matr, posx, posy):
-        for i in range(max(posx-1, 0), min(posx+2, len(matr))):
-            for j in range(max(posy-1, 0), min(posy+2, len(matr[0]))):
-                if Casilla.get_val(matr[i][j]) == 0:
-                    matr[i][j] = Casilla.set_lev(True)
-                    levantar(matr, i, j)
+def levantar_auto(matr):
+        for i in range(len(matr)):
+            for j in range(len(matr[0])):
+                if Casilla.get_lev(matr[i][j]) == True:
+                    if Casilla.get_val(matr[i][j]) == 0:
+                        if numero(i, j).analizar_minas(matr) == 0:
+                            for x in range(max(i-1, 0), min(i+2, len(matr))):
+                                for y in range(max(j-1, 0), min(j+2, len(matr))):
+                                    Casilla.set_lev(matr[x][y], True)
         return matr
 def crear_minas_numeros(matr, x, y):
     for i in range(int(x)):
@@ -45,7 +48,6 @@ def actualizar_y_dibujar_tablero(lista, x, y):
         for j in range(int(y)):
             if Casilla.get_lev(lista[i][j]) == True:
                 if Casilla.get_val(lista[i][j]) == 0:
-                    lista[i][j] = numero(i, j)
                     cant_de_minas = numero(i, j).analizar_minas(lista)
                     if cant_de_minas == 0:
                         print("  |", end="")
@@ -53,15 +55,24 @@ def actualizar_y_dibujar_tablero(lista, x, y):
                         print(f" {cant_de_minas}|", end="")
                 else:
                     print(" X|", end = "")
-                    se_ha_acabado_el_juego = True   
             else:
-                print("  |", end="")
+                print(" x|", end="")
         print()        
-    return se_ha_acabado_el_juego
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
 matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
-actualizar_y_dibujar_tablero(matr, x, y)
+seguirjugando = True
+try:
+    while seguirjugando == True:
+        jugada = input("Tu jugada(fila,columna): ")
+        (x,y) = jugada.split(",")
+        if Casilla.get_lev(matr[x][y]) == False:
+            if Casilla.get_val(matr[x][y])
+        matr = levantar_auto(matr)
+        actualizar_y_dibujar_tablero(matr, x, y)
+        
+        
+        
