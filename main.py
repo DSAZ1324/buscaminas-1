@@ -89,7 +89,7 @@ seguirjugando = True
 actualizar_y_dibujar_tablero(matr, x, y)
 has_ganado = False
 try:
-    while has_ganado == False:
+    while True:
         jugada = input("Tu jugada(fila,columna): ")
         (jx,jy) = jugada.split(",")
         if Casilla.get_lev(matr[int(jx)][int(jy)]) == False:
@@ -100,8 +100,10 @@ try:
         else:
             print("Ya levantado... -.-")
         matr = levantar_auto(matr)
-        actualizar_y_dibujar_tablero(matr, x, y)
         has_ganado = contar_levantadas(matr)
+        if has_ganado == True:
+            break
+        actualizar_y_dibujar_tablero(matr, x, y)
     if has_ganado == False:
         for i in range(len(matr)):
             for j in range(len(matr[0])):
