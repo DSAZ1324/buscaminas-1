@@ -88,7 +88,12 @@ def actualizar_y_dibujar_tablero(lista, x, y):
                 else:
                     print(" X|", end = "")
             else:
-                print(" x|", end="")
+                if Casilla.get_banderilla(lista[i][j]) == '!':
+                    print(" !|", end="")
+                elif Casilla.get_banderilla(lista[i][j]) == '?':
+                    print(" ?|", end="")
+                else:
+                    print(" x|", end='')
         print()        
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
@@ -102,13 +107,23 @@ print("0h 0' 00\"")
 actualizar_y_dibujar_tablero(matr, x, y)
 try:
     while True:
-        jugada = input("Tu jugada(fila,columna): ")
-        (jx,jy) = jugada.split(",")
+        jugada = input("Tu jugada(fila,columna,opción[!,?,q(uitar),j(ugar)]), o escribe 'salir: ")
+        if jugada == 'salir':
+            break
+        else:
+            (jx,jy,jz) = jugada.split(",")
         if Casilla.get_lev(matr[int(jx)][int(jy)]) == False:
-            if Casilla.get_val(matr[int(jx)][int(jy)]) == 1:
-                break
-            else:
-                Casilla.set_lev(matr[int(jx)][int(jy)], True)
+            if jz == 'j':
+                if Casilla.get_val(matr[int(jx)][int(jy)]) == 1:
+                    break
+                else:
+                    Casilla.set_lev(matr[int(jx)][int(jy)], True)
+            elif jz == '!':
+                Casilla.set_banderilla(matr[int(jx)][int(jy)], '!')
+            elif jz == '?':
+                Casilla.set_banderilla(matr[int(jx)][int(jy)], '?')
+            elif jz == 'q':
+                Casilla.set_banderilla(matr[int(jx)][int(jy)], '')
         else:
             print("Ya levantado... -.-")
         matr = levantar_auto(matr)

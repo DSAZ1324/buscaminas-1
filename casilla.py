@@ -11,14 +11,27 @@ class Casilla:
         self.y = int(posy) #Posición de la casilla en el eje y
         self.lev = False #Estado de la casilla, True = levantado, False = Tapado
         self.val = random.randint(0, 4)#else = numero, 1 = mina.
+        self.band = ''
     def get_pos(self):
         return self.x, self.y #Devuelve posición
     def get_lev(self):
        return self.lev#Devuelve el estado
     def set_lev(self, lev):
-        self.lev = lev #Cambia de estado a la casilla 
+        if self.band == '!':
+            self.lev = False
+        else:
+            self.lev = lev
     def get_val(self):  
         return self.val
+    def set_banderilla(self, banderilla):
+        if banderilla == '!':
+            self.band = '!'
+        elif banderilla == '?':
+            self.band = '?'
+        else:
+            self.band = ''
+    def get_banderilla(self):
+        return self.band
 class numero(Casilla):
     def __init__(self, posx, posy):
         Casilla.__init__(self, posx, posy)
