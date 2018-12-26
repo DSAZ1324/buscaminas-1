@@ -40,11 +40,14 @@ def table(matr, x, y):
 def actualizar_y_dibujar_tablero(lista, x, y):
     print((int(x) + 1) * "-+-")
     print("  |",end="")
+    for i in range(int(y)):
+        if i >=10:
+            print(f"{i}|", end="")
+        else:
+            print(f" {i}|", end="")
+    print("\n" + (int(y) + 1) * "-+-")
     for i in range(int(x)):
-        print(f" {i + 1}|", end="")
-    print("\n" + (int(x) + 1) * "-+-")
-    for i in range(int(x)):
-        print(f" {i + 1}|", end="")
+        print(f" {i}|", end="")
         for j in range(int(y)):
             if Casilla.get_lev(lista[i][j]) == True:
                 if Casilla.get_val(lista[i][j]) == 0:
