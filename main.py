@@ -125,6 +125,10 @@ try:
             for j in range(len(matr[0])):
                         if Casilla.get_lev(matr[i][j]) == False:
                             Casilla.set_lev(matr[i][j], True)
+        despues = int(round(time.time())) - antes
+        m, s = divmod(despues, 60)
+        h, m = divmod(m, 60)
+        print ("%d:%02d:%02d" % (h, m, s))
         actualizar_y_dibujar_tablero(matr, x, y)
         print("HAS PERDIDO")
     else:
@@ -132,6 +136,10 @@ try:
             for j in range(len(matr[0])):
                         if Casilla.get_lev(matr[i][j]) == False:
                             Casilla.set_lev(matr[i][j], True)
+        despues = int(round(time.time())) - antes
+        m, s = divmod(despues, 60)
+        h, m = divmod(m, 60)
+        print ("%d:%02d:%02d" % (h, m, s))
         actualizar_y_dibujar_tablero(matr, x, y)
         print("HAS GANADO")
 except:
