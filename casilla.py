@@ -25,8 +25,8 @@ class numero(Casilla):
         self.contador=int(0)
         self.val = 0
     def analizar_minas(self, matr):
-        for i in range(self.x-1, self.x+1):
-            for j in range(self.y-1, self.y+1):
+        for i in range(max(self.x-1, 0), min(self.x+2, len(matr))):
+            for j in range(max(self.y-1, 0), min(self.y+2, len(matr[0]))):
                 if Casilla.get_val(matr[i][j]) == 1:
                     self.contador+=1
         return self.contador       
