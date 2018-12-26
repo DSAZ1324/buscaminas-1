@@ -10,7 +10,7 @@ class Casilla:
         self.x = int(posx) #Posición de la casilla en el eje x
         self.y = int(posy) #Posición de la casilla en el eje y
         self.lev = False #Estado de la casilla, True = levantado, False = Tapado
-        self.val = random.randint(0, 1)#0 = numero, 1 = mina.
+        self.val = random.randint(0, 4)#else = numero, 1 = mina.
     def get_pos(self):
         return self.x, self.y #Devuelve posición
     def get_lev(self):

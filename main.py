@@ -9,6 +9,21 @@ from casilla import numero
 from casilla import mina
 from Tablero import Tablero
 matr = []
+def contar_levantadas(matr):
+    cant_levantables = 0
+    levantados = 0
+    for i in range(len(matr)):
+        for j in range(len(matr[0])):
+            if Casilla.get_val(matr[i][j]) == 0:
+                cant_levantables += 1
+    for i in range(len(matr)):
+        for j in range(len(matr[0])):
+            if Casilla.get_val(matr[i][j]) == 0 and Casilla.get_lev(matr[i][j]) == True:
+                levantados += 1
+    if cant_levantables == levantados:
+        return True
+    else:
+        return False
 def levantar_auto(matr):
         for i in range(len(matr)):
             for j in range(len(matr[0])):
@@ -72,8 +87,9 @@ matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
 seguirjugando = True
 actualizar_y_dibujar_tablero(matr, x, y)
+has_ganado = False
 try:
-    while True:
+    while has_ganado == False:
         jugada = input("Tu jugada(fila,columna): ")
         (jx,jy) = jugada.split(",")
         if Casilla.get_lev(matr[int(jx)][int(jy)]) == False:
@@ -85,11 +101,20 @@ try:
             print("Ya levantado... -.-")
         matr = levantar_auto(matr)
         actualizar_y_dibujar_tablero(matr, x, y)
-    for i in range(len(matr)):
-                for j in range(len(matr[0])):
-                    if Casilla.get_lev(matr[i][j]) == False:
-                        Casilla.set_lev(matr[i][j], True)
-    actualizar_y_dibujar_tablero(matr, x, y)
-    print("HAS PERDIDO")
+        has_ganado = contar_levantadas(matr)
+    if has_ganado == False:
+        for i in range(len(matr)):
+            for j in range(len(matr[0])):
+                        if Casilla.get_lev(matr[i][j]) == False:
+                            Casilla.set_lev(matr[i][j], True)
+        actualizar_y_dibujar_tablero(matr, x, y)
+        print("HAS PERDIDO")
+    else:
+        for i in range(len(matr)):
+            for j in range(len(matr[0])):
+                        if Casilla.get_lev(matr[i][j]) == False:
+                            Casilla.set_lev(matr[i][j], True)
+        actualizar_y_dibujar_tablero(matr, x, y)
+        print("HAS GANADO")
 except:
     print("Uups, creo que acabas de romperlo...")
