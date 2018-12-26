@@ -18,13 +18,3 @@ class Tablero:
             matr.append(matraux)
             matraux = []
         return matr
-    
-    
-    
-            
-                            
-                        
-                        
-                        
-                    
-        

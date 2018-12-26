@@ -69,11 +69,22 @@ def actualizar_y_dibujar_tablero(lista, x, y):
         for j in range(int(y)):
             if Casilla.get_lev(lista[i][j]) == True:
                 if Casilla.get_val(lista[i][j]) == 0:
+                    colorrojo = '\033[31m'
+                    colorazul = '\033[34m'
+                    coloramarillo = '\033[33m'
+                    colorverde=  '\033[32m'
+                    acabarcolor = '\033[m'
                     cant_de_minas = numero(i, j).analizar_minas(lista)
                     if cant_de_minas == 0:
                         print("  |", end="")
-                    else:
-                        print(f" {cant_de_minas}|", end="")
+                    elif cant_de_minas < 2:
+                        print(f" {colorazul + str(cant_de_minas) + acabarcolor}|", end="")
+                    elif cant_de_minas < 3:
+                        print(f" {colorverde + str(cant_de_minas) + acabarcolor}|", end="")
+                    elif cant_de_minas < 5:
+                        print(f" {coloramarillo + str(cant_de_minas) + acabarcolor}|", end="")
+                    elif cant_de_minas < 9:
+                        print(f" {colorrojo + str(cant_de_minas) + acabarcolor}|", end="")
                 else:
                     print(" X|", end = "")
             else:
