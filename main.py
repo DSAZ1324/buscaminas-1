@@ -9,11 +9,12 @@ from casilla import numero
 from casilla import mina
 from Tablero import Tablero
 matr = []
-def levantar(matr, posx, posy):
+def levantar_auto(matr, posx, posy):
         for i in range(max(posx-1, 0), min(posx+2, len(matr))):
             for j in range(max(posy-1, 0), min(posy+2, len(matr[0]))):
                 if Casilla.get_val(matr[i][j]) == 0:
                     matr[i][j] = Casilla.set_lev(True)
+                    levantar(matr, i, j)
         return matr
 def crear_minas_numeros(matr, x, y):
     for i in range(int(x)):
