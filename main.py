@@ -107,7 +107,7 @@ print("0h 0' 00\"")
 actualizar_y_dibujar_tablero(matr, x, y)
 try:
     while True:
-        jugada = input("Tu jugada(fila,columna,opción[!,?,q(uitar),j(ugar)]), o escribe 'salir: ")
+        jugada = input("Tu jugada(fila,columna,opción[!,?,q(uitar),j(ugar)]), o escribe 'salir': ")
         if jugada == 'salir':
             break
         else:
