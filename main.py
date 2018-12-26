@@ -47,7 +47,10 @@ def actualizar_y_dibujar_tablero(lista, x, y):
             print(f" {i}|", end="")
     print("\n" + (int(y) + 1) * "-+-")
     for i in range(int(x)):
-        print(f" {i}|", end="")
+        if i >=10:
+            print(f"{i}|", end="")
+        else:
+            print(f" {i}|", end="")
         for j in range(int(y)):
             if Casilla.get_lev(lista[i][j]) == True:
                 if Casilla.get_val(lista[i][j]) == 0:
