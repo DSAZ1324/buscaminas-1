@@ -65,14 +65,25 @@ matr = Tablero.crear_tab(matr)
 matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
 seguirjugando = True
+actualizar_y_dibujar_tablero(matr, x, y)
 try:
-    while seguirjugando == True:
+    while True:
         jugada = input("Tu jugada(fila,columna): ")
-        (x,y) = jugada.split(",")
-        if Casilla.get_lev(matr[x][y]) == False:
-            if Casilla.get_val(matr[x][y])
+        (jx,jy) = jugada.split(",")
+        if Casilla.get_lev(matr[int(jx)][int(jy)]) == False:
+            if Casilla.get_val(matr[int(jx)][int(jy)]) == 1:
+                break
+            else:
+                Casilla.set_lev(matr[int(jx)][int(jy)], True)
+        else:
+            print("Ya levantado... -.-")
         matr = levantar_auto(matr)
         actualizar_y_dibujar_tablero(matr, x, y)
-        
-        
-        
+    for i in range(len(matr)):
+                for j in range(len(matr[0])):
+                    if Casilla.get_lev(matr[i][j]) == False:
+                        Casilla.set_lev(matr[i][j], True)
+    actualizar_y_dibujar_tablero(matr, x, y)
+    print("HAS PERDIDO")
+except:
+    print("Uups, creo que acabas de romperlo...")
