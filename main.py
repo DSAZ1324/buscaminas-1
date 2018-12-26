@@ -53,7 +53,7 @@ def table(matr, x, y):
         listaux = []
     return lista
 def actualizar_y_dibujar_tablero(lista, x, y):
-    print((int(x) + 1) * "-+-")
+    print((int(y) + 1) * "-+-")
     print("  |",end="")
     for i in range(int(y)):
         if i >=10:
@@ -85,9 +85,10 @@ matr = Tablero(x, y)
 matr = Tablero.crear_tab(matr)
 matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
-seguirjugando = True
-actualizar_y_dibujar_tablero(matr, x, y)
 has_ganado = False
+antes = int(round(time.time(), 0))
+print("0h 0' 00\"")
+actualizar_y_dibujar_tablero(matr, x, y)
 try:
     while True:
         jugada = input("Tu jugada(fila,columna): ")
@@ -103,6 +104,10 @@ try:
         has_ganado = contar_levantadas(matr)
         if has_ganado == True:
             break
+        despues = int(round(time.time())) - antes
+        m, s = divmod(despues, 60)
+        h, m = divmod(m, 60)
+        print ("%d:%02d:%02d" % (h, m, s))
         actualizar_y_dibujar_tablero(matr, x, y)
     if has_ganado == False:
         for i in range(len(matr)):
