@@ -36,4 +36,3 @@ class mina(Casilla):
         self.val = 1
     def existe(self):
         return self.val
-    

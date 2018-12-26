@@ -19,13 +19,3 @@ class Tablero:
             matr.append(matraux)
             matraux = []
         return matr
-    def levantar(self, matr):
-        for x in range(self.i-1, self.i+1):
-                for y in range(self.j-1, self.j+1):
-                     matr[x][y] = Casilla(x, y)
-                     val_casilla = Casilla.get_lev()
-        return val_casilla            
-            
-        
-        #Crear tablero aqui
-        #Levantar funcion o metodo? (Recursivo) 

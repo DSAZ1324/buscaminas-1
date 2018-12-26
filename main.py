@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Nov 23 21:38:55 2018
-
 @author: enaut.genua
 """
 import time
@@ -10,6 +9,12 @@ from casilla import numero
 from casilla import mina
 from Tablero import Tablero
 matr = []
+def levantar(matr, posx, posy):
+        for i in range(max(posx-1, 0), min(posx+2, len(matr))):
+            for j in range(max(posy-1, 0), min(posy+2, len(matr[0]))):
+                if Casilla.get_val(matr[i][j]) == 0:
+                    matr[i][j] = Casilla.set_lev(True)
+        return matr
 def crear_minas_numeros(matr, x, y):
     for i in range(int(x)):
         for j in range(int(y)):
@@ -52,9 +57,6 @@ def actualizar_y_dibujar_tablero(lista, x, y):
                 print("  |", end="")
         print()        
     return se_ha_acabado_el_juego
-            
-            
-
 dim = str(input("Introduzca las dimensiones de tu tablero (filas,columnas): "))
 (x, y) = dim.split(",")
 matr = Tablero(x, y)
@@ -62,5 +64,3 @@ matr = Tablero.crear_tab(matr)
 matr = table(matr, x, y)
 matr = crear_minas_numeros(matr, x, y)
 actualizar_y_dibujar_tablero(matr, x, y)
-
-        
